@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/paralelReport1.xml"
         },
         features = "src/test/resources/features",
-        glue = "stepdefinitions",
+        glue = "stepDefinitions",
         tags = "@pr1" ,
         dryRun = false
 )
