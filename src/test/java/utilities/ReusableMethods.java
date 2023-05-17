@@ -1,9 +1,11 @@
 package utilities;
 
 import org.apache.commons.io.FileUtils;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -134,8 +136,8 @@ public class ReusableMethods {
         JavascriptExecutor js=(JavascriptExecutor)Driver.getDriver();
         js.executeScript("window.scrollBy(0,"+scrollBy+")");
     }
-  
-  
+
+
     public static boolean titleListingMethod(String data){
         List<WebElement> actualList=Driver.getDriver().findElements(By.xpath("//*[@id=\"DataTables_Table_0\"]/thead/tr[1]//th"));
         List<String> stringActualList=new ArrayList<>();
@@ -180,15 +182,15 @@ public class ReusableMethods {
         return false;
     }
 
-    public static boolean allOr100OptionSelect(int sutunNo,String option){
+    public static boolean stringListSortTesting(int sutunNo){
         Select select=new Select(Driver.getDriver().findElement(By.xpath("//select[@name='DataTables_Table_0_length']")));
         bekle(3);
-        select.selectByVisibleText(option);
+        select.selectByVisibleText("All");
         bekle(3);
-        WebElement title= Driver.getDriver().findElement(By.xpath("//*[@id=\"DataTables_Table_0\"]/thead/tr[1]//th["+sutunNo+"]"));
+        WebElement title= Driver.getDriver().findElement(By.xpath("//*[@id='DataTables_Table_0']/thead/tr/th["+sutunNo+"]"));
         title.click();
         ReusableMethods.bekle(3);
-        List<WebElement> actualList=Driver.getDriver().findElements(By.xpath("//*[@id=\"DataTables_Table_0\"]/tbody/tr/td["+sutunNo+"]"));
+        List<WebElement> actualList=Driver.getDriver().findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr/td["+sutunNo+"]"));
 
         List<String> actualStringList=new ArrayList<>();
         for (WebElement each:actualList
@@ -218,8 +220,8 @@ public class ReusableMethods {
     }
 
 
-      //   Parameter1 : WebElement
-     //    Parameter2:  String
+    //   Parameter1 : WebElement
+    //    Parameter2:  String
     //     Driver.selectByVisibleText(dropdown element, "CHECKING-91303-116.98$")
     public static void selectByVisibleText(WebElement element, String text) {
         Select objSelect = new Select(element);
@@ -259,4 +261,91 @@ public class ReusableMethods {
     public static void waitAndClickLocationText(WebElement element, String value) {
         Driver.getDriver().findElement(By.xpath("//*[text()='" + value + "']")).click();
     }
+
+    public static boolean intListSortTesting(int sutunNo){
+        Select select=new Select(Driver.getDriver().findElement(By.xpath("//select[@name='DataTables_Table_0_length']")));
+        bekle(3);
+        select.selectByVisibleText("All");
+        bekle(3);
+        WebElement baslik= Driver.getDriver().findElement(By.xpath("//*[@id='DataTables_Table_0']/thead/tr[1]//th["+sutunNo+"]"));
+        baslik.click();
+        ReusableMethods.bekle(3);
+        List<WebElement> ActualList=Driver.getDriver().findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr/td["+sutunNo+"]"));
+
+        List<Integer> ActualIntList=new ArrayList<>();
+        for (WebElement each:ActualList
+        ) {
+            String data=each.getText().replaceAll("\\D","");
+            ActualIntList.add(Integer.valueOf(data));
+        }
+        System.out.println(ActualIntList);
+        int sayi=0;
+        for (int i = 1; i <ActualIntList.size() ; i++) {
+            int ilkVeri=ActualIntList.get(sayi);
+            if (ilkVeri>ActualIntList.get(i)){
+                return false;
+            }
+            sayi++;
+        }
+
+        return true;
+
+
+    }
+
+    public static boolean allOr100OptionSelect(int sutunNo,String option){
+        Select select=new Select(Driver.getDriver().findElement(By.xpath("//select[@name='DataTables_Table_0_length']")));
+        bekle(3);
+        select.selectByVisibleText(option);
+        bekle(3);
+        WebElement title= Driver.getDriver().findElement(By.xpath("//*[@id=\"DataTables_Table_0\"]/thead/tr[1]//th["+sutunNo+"]"));
+        title.click();
+        ReusableMethods.bekle(3);
+        List<WebElement> actualList=Driver.getDriver().findElements(By.xpath("//*[@id=\"DataTables_Table_0\"]/tbody/tr/td["+sutunNo+"]"));
+
+        List<String> actualStringList=new ArrayList<>();
+        for (WebElement each:actualList
+        ) {
+            actualStringList.add(each.getText().toLowerCase().replaceAll("\\d","").replace("."," "));
+        }
+        List<String> ExpectedList=new ArrayList<>(actualStringList);
+        Collections.sort(ExpectedList);
+        System.out.println(actualStringList);
+        System.out.println(ExpectedList);
+        if (actualStringList.equals(ExpectedList)){
+            return true;
+        }
+        return false;
+
+    }
+
+    // 16.05.2023
+
+    public static void stringListSortTestingAbd(int sutunNo){
+        Select select=new Select(Driver.getDriver().findElement(By.xpath("//select[@name='DataTables_Table_0_length']")));
+        bekle(3);
+        select.selectByVisibleText("All");
+        bekle(3);
+        WebElement title= Driver.getDriver().findElement(By.xpath("//*[@id='DataTables_Table_0']/thead/tr/th["+sutunNo+"]"));
+        title.click();
+        ReusableMethods.bekle(3);
+        List<WebElement> actualList=Driver.getDriver().findElements(By.xpath("//*[@id='DataTables_Table_0']/tbody/tr/td["+sutunNo+"]"));
+
+        List<String> actualStringList=new ArrayList<>();
+        for (WebElement each:actualList
+        ) {
+            actualStringList.add(each.getText().toLowerCase().replaceAll("\\d","").replace("."," "));
+        }
+        List<String> ExpectedList=new ArrayList<>(actualStringList);
+        Collections.sort(ExpectedList);
+        System.out.println(actualStringList);
+        System.out.println(ExpectedList);
+
+        for (int i = 1; i <=actualStringList.size() ; i++) {
+            Assert.assertEquals(actualStringList.get(i),(ExpectedList.get(i)));
+
+        }
+
+    }
+
 }

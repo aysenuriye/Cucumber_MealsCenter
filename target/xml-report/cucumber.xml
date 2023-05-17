@@ -1,17 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="27.074" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="US_063 As a doctor, I want to access the hospital's stock information on blood and components as well as blood donation data from the Blood Bank page on the Dashboard Sidebar." name="TC_39 --&gt; US_063 In the Components List, the number of content to be displayed on a page (as 100 or All) should be selected." time="26.835">
+<testsuite name="Cucumber" time="45.266" tests="1" skipped="0" failures="1" errors="0">
+<testcase classname="US_063 As a doctor, I want to access the hospital's stock information on blood and components as well as blood donation data from the Blood Bank page on the Dashboard Sidebar." name="TC_23 --&gt; US_063  In the Blood Issue Details List, list contents should be sorted by column headings." time="45.01">
+<failure type="org.junit.ComparisonFailure" message="expected:&lt;[olivier thomas] ()&gt; but was:&lt;[ayşe nuriye alçık] ()&gt;">
+<![CDATA[org.junit.ComparisonFailure: expected:<[olivier thomas] ()> but was:<[ayşe nuriye alçık] ()>
+	at org.junit.Assert.assertEquals(Assert.java:117)
+	at org.junit.Assert.assertEquals(Assert.java:146)
+	at utilities.ReusableMethods.stringListSortTestingAbd(ReusableMethods.java:345)
+	at stepDefinitions.DoctorStepDefinition.clickOnTheReceivedToTitleVerifyThatTheSortingIsByAlphabetical(DoctorStepDefinition.java:131)
+	at ✽.Click on the Received To title verify that the sorting is by alphabetical.(file:///C:/Users/Lenovo/Desktop/gitHubTeam108/Cucumber_MealsCenter/src/test/resources/features/US_063.feature:38)
+]]>
+</failure>
 <system-out><![CDATA[
 Given User goes to "adminUrl"...............................................passed
 Then Enters "doctorUsernameAbdullah" in the username field..................passed
 Then Enters "adminPaswordAbdullah" in the password field....................passed
 Then Clicks on the Sign In Button...........................................passed
 Then Click on the Bllod Bank Link...........................................passed
-Then Click on the Component Issue link......................................passed
-Then Click on the Components link...........................................passed
-Then Click on the option....................................................passed
-Then Click on the "option100" text under Issue Component and verify that the selected options are sorted ..passed
-Then Close Browser..........................................................passed
+Then Click on the Blood Issue Details link..................................passed
+Then Click on the Received To title verify that the sorting is by alphabetical..failed
+Then Close Browser..........................................................skipped
 ]]></system-out>
 </testcase>
 </testsuite>

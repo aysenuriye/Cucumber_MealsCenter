@@ -132,9 +132,19 @@ public class AdminPage extends Base {
     @FindBy (xpath = "(//th[text()='Fees'])[1]")
     public WebElement appointmentDetailsListFeesAdminPage;
 
+
     // **********************US 39 LOCATERS***************************** //
 
     //------------------------------------------------------------------//
+
+
+    // 15.05.2023
+
+    @FindBy(xpath = "//h4[text()='Appointment Details']")
+    public WebElement showSetailsVerifyLocate;
+
+    @FindBy (xpath = "(//*[@class='box-body'])[2]")
+    public WebElement doctorWiseAppoinmentVerify;
 
 
 }

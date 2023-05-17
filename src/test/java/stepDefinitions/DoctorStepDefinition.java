@@ -114,4 +114,30 @@ public class DoctorStepDefinition {
     public void clickOnTheOption() {
         doctorPage.allor100Option.click();
     }
+
+
+
+    // 16.05.2023 ve sonrası
+
+
+
+    @Then("Click on the Biil No title and verify that the sorting is by number.")
+    public void clickOnTheBiilNoTitleAndVerifyThatTheSortingIsByNumber() {
+        ReusableMethods.intListSortTesting(1);
+    }
+
+    @Then("Click on the Received To title verify that the sorting is by alphabetical.")
+    public void clickOnTheReceivedToTitleVerifyThatTheSortingIsByAlphabetical() {
+        ReusableMethods.stringListSortTestingAbd(4);
+    }
+
+    @Then("Click Donor Name title and verify that the donor names are sorted by alphabetical.")
+    public void clickDonorNameTitleAndVerifyThatTheDonorNamesAreSortedByAlphabetical() {
+        ReusableMethods.stringListSortTestingAbd(8);
+    }
+
+    @Then("Click on the Name title verify that the names are sorted by alphatical.")
+    public void clickOnTheNameTitleVerifyThatTheNamesAreSortedByAlphatical() {
+        ReusableMethods.stringListSortTestingAbd(1);
+    }
 }

@@ -25,6 +25,19 @@ Feature: US_063 As a doctor, I want to access the hospital's stock information o
       Then  Verify that the titles and their details is displayed.
       Then  Close Browser
 
+  Scenario: TC_22 --> US_063 In the Blood Issue Details List, list contents should be sorted by column headings.
+
+    Then Click on the Blood Issue Details link.
+    Then Click on the Biil No title and verify that the sorting is by number.
+    Then Close Browser
+
+    @wip
+  Scenario: TC_23 --> US_063  In the Blood Issue Details List, list contents should be sorted by column headings.
+
+    Then Click on the Blood Issue Details link.
+    Then Click on the Received To title verify that the sorting is by alphabetical.
+    Then Close Browser
+
   Scenario: TC_24 --> US_063 Blood and components stock information of all blood groups should be displayed on the Blood Bank Status page.
 
       Then  Click on the any blood group.
@@ -37,6 +50,12 @@ Feature: US_063 As a doctor, I want to access the hospital's stock information o
       Then  Verify that the searchbox is clickable.
       Then  Close Browser
 
+  Scenario: TC_26 --> In the Components List, the number of content to be displayed on a page (as 100 or All) should be selected.
+
+    Then Click on the Blood Issue Details link.
+    Then Click on the "optionAll" text under Issue Blood and verify that the options are clickable.
+    Then Close Browser
+
   Scenario:  TC_29 --> US_063 There should be a redirect on the Components Issue Details page from the Blood Bank Status page.
       Then  Click on the Component Issue link.
       Then  Verify that the Component Issue Details page is opened.
@@ -48,10 +67,22 @@ Feature: US_063 As a doctor, I want to access the hospital's stock information o
       Then Verify that the Component Issue Details titles are visible.
       Then Close Browser
 
+
+  Scenario: TC_31 --> US_063 In the Components Issue Details List, the list contents should be sorted by the column headings.
+
+    Then Click on the Component Issue link.
+    Then Click Donor Name title and verify that the donor names are sorted by alphabetical.
+    Then Close Browser
+
   Scenario: TC_32 --> US_063 Components Issue Details Must have a searchBox to easily search the contents of the LIst.
       Then Click on the Component Issue link.
       Then Verify that the search textbox is displayed.
       Then Close Browser
+
+  Scenario: TC_33 --> In the Components List, the number of content to be displayed on a page (as 100 or All) should be selected.
+    Then Click on the Component Issue link.
+    Then Click on the "option100" text under Issue Component and verify that the selected options are sorted .
+    Then Close Browser
 
   Scenario: TC_35 --> US_063  There should be a redirect from the Components Issue Details page to the Components page
 
@@ -67,6 +98,14 @@ Feature: US_063 As a doctor, I want to access the hospital's stock information o
       Then Verify that the Name, Blood Group, Bags, Lot, Institution titles are opened.
       Then Close Browser
 
+  @buasıtamdeğil
+  Scenario: TC_37 --> US_063 In the Components List, the list contents should be sorted by the column headings.
+
+      Then Click on the Component Issue link.
+      Then Click on the Components link.
+      Then Click on the Name title verify that the names are sorted by alphatical.
+      Then Close Browser
+
   Scenario: TC_38 --> US_063 In order to easily search among the contents in the Components List, there must be a searchBox.
 
       Then Click on the Component Issue link.
@@ -75,21 +114,19 @@ Feature: US_063 As a doctor, I want to access the hospital's stock information o
       Then Close Browser
 
 
-  Scenario: TC_33 --> In the Components List, the number of content to be displayed on a page (as 100 or All) should be selected.
-    Then Click on the Component Issue link.
-    Then Click on the "option100" text under Issue Component and verify that the selected options are sorted .
-    Then Close Browser
-
-
-  Scenario: TC_26 --> In the Components List, the number of content to be displayed on a page (as 100 or All) should be selected.
-
-    Then Click on the Blood Issue Details link.
-    Then Click on the "optionAll" text under Issue Blood and verify that the options are clickable.
-    Then Close Browser
-  @wip
   Scenario: TC_39 --> US_063 In the Components List, the number of content to be displayed on a page (as 100 or All) should be selected.
     Then Click on the Component Issue link.
     Then Click on the Components link.
     Then Click on the option
     Then Click on the "option100" text under Issue Component and verify that the selected options are sorted .
     Then Close Browser
+
+
+
+
+
+
+
+
+
+

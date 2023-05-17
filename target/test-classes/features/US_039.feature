@@ -1,12 +1,4 @@
-
 Feature: US_039 As an admin I would like to have a page in the dashboard sidebar to manage appointments.
-
-  Background:
-  Given User goes to "adminUrl"
-  Then  Enters "adminUsernameAbdullah" in the username field
-  Then  Enters "adminPaswordAbdullah" in the password field
-  Then  Clicks on the Sign In Button
-  Then  Click on the Appointment link
 
 
   Scenario: TC_01 --> US_039 When click on the Appointment link in the Dashboard sidebar, it should redirect to the relevant page.
